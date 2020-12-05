@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { StateProvider } from "./Services/Store";
+import UserProvider from "./Services/Auth";
 
 ReactDOM.render(
-  <StateProvider>
-    <App />
-  </StateProvider>,
+  <UserProvider>
+    <StateProvider>
+      <App />
+    </StateProvider>
+  </UserProvider>,
   document.getElementById("root")
 );
 

@@ -1,29 +1,19 @@
-import "./App.css";
-import { BrowserRouter, Route, useHistory } from "react-router-dom";
+import React, { useContext } from "react";
 import Login from "./Components/Login/login";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import { useEffect } from "react";
+import Navbar from "./Components/Navbar/navbar";
+import { UserContext } from "./Services/Auth";
 
-function App() {
-  const user = null;
-
-  const history = useHistory();
-  useEffect(() => {
-    if (user === null) {
-      history.push("/");
-    }
-    history.push("/home");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-  return (
-    <BrowserRouter>
-      {user ? (
-        <Route path="/home" render={(props) => <Home {...props} />} />
-      ) : (
-        <Route exact path="/" render={(props) => <Login {...props} />} />
-      )}
-    </BrowserRouter>
+const App = () => {
+  const user = useContext(UserContext);
+  return !user ? (
+    <Login />
+  ) : (
+    <HashRouter>
+      <Navbar />
+      <Route exact path="/" render={(props) => <Home {...props} />} />
+    </HashRouter>
   );
-}
-
+};
 export default App;
