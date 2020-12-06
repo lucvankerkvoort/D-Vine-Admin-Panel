@@ -4,6 +4,10 @@ const Home = () => {
   const user = useContext(UserContext);
   const { email } = user;
 
-  return <h1>{email}</h1>;
+  return (
+    <div className="home">
+      <h1>{email}</h1>
+    </div>
+  );
 };
 export default Home;
