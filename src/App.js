@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import "./Styles/import.scss";
 import Navbar from "./Components/Navbar/navbar";
 import { UserContext } from "./Services/Auth";
+import { DbProvider } from "./Services/Db";
 
 const App = () => {
   const user = useContext(UserContext);
@@ -13,10 +14,12 @@ const App = () => {
       {!user ? (
         <Login />
       ) : (
-        <HashRouter>
-          <Navbar />
-          <Route exact path="/" render={(props) => <Home {...props} />} />
-        </HashRouter>
+        <DbProvider>
+          <HashRouter>
+            <Navbar />
+            <Route exact path="/" render={(props) => <Home {...props} />} />
+          </HashRouter>
+        </DbProvider>
       )}
     </div>
   );

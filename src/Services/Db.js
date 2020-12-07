@@ -17,6 +17,7 @@ export const DbContext = createContext(initialState);
 export const DbProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
+  console.log(state.wine);
   function removeWine(id) {
     dispatch({
       type: "REMOVE_WINE",
@@ -38,6 +39,13 @@ export const DbProvider = ({ children }) => {
     });
   }
 
+  function getSize(size) {
+    dispatch({
+      type: "GET_SIZE",
+      payload: size,
+    });
+  }
+
   return (
     <DbContext.Provider
       value={{
@@ -45,6 +53,7 @@ export const DbProvider = ({ children }) => {
         removeWine,
         addWine,
         editWine,
+        getSize,
       }}
     >
       {children}
