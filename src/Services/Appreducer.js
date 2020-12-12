@@ -1,5 +1,5 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { db } from "../Firebase/Firebase";
-// eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
   console.log(state);
   switch (action.type) {
