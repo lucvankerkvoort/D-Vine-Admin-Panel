@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { storage } from "../../Firebase/Firebase";
-const AddImage = ({ setImage }) => {
+const AddImage = ({ setImage, state }) => {
   const [imageAsFile, setImageAsFile] = useState("");
 
   const handleImageAsFile = (e) => {
@@ -35,7 +35,7 @@ const AddImage = ({ setImage }) => {
           .child(imageAsFile.name)
           .getDownloadURL()
           .then((fireBaseUrl) => {
-            setImage(fireBaseUrl);
+            setImage([...state, fireBaseUrl]);
           });
       }
     );

@@ -2,33 +2,27 @@ import React from "react";
 import { auth } from "../../Firebase/Firebase";
 import { Link } from "react-router-dom";
 const Navbar = () => {
-  const openNav = (e) => {
-    // console.log(e.target);
-    let nav = e.target;
+  const openNav = () => {
+    let nav = document.getElementsByClassName("navbar");
 
-    if (nav.className === "navbar") {
-      let anchors = document.getElementsByClassName("navbar-items");
+    let anchors = document.getElementsByClassName("navbar-items");
 
-      for (let child of anchors) {
-        // console.log("child", child);
-        child.classList.add("visible");
-      }
-      nav.style.width = "100px";
+    for (let child of anchors) {
+      // console.log("child", child);
+      child.classList.add("visible");
     }
+    nav[0].style.width = "100px";
   };
 
-  const closeNav = (e) => {
-    let nav = e.target;
+  const closeNav = () => {
+    let nav = document.getElementsByClassName("navbar");
+    nav[0].style.width = "5px";
 
-    if (nav.className === "navbar") {
-      nav.style.width = "5px";
+    let anchors = document.getElementsByClassName("navbar-items");
 
-      let anchors = document.getElementsByClassName("navbar-items");
-
-      for (let child of anchors) {
-        // console.log("child", child);
-        child.classList.remove("visible");
-      }
+    for (let child of anchors) {
+      // console.log("child", child);
+      child.classList.remove("visible");
     }
   };
 
@@ -36,16 +30,17 @@ const Navbar = () => {
     <div className="layer">
       <div
         className="navbar"
-        onMouseEnter={(e) => openNav(e)}
-        onMouseLeave={(e) => closeNav(e)}
+        onMouseEnter={() => openNav()}
+        onMouseLeave={() => closeNav()}
       >
         <div className="navbar-items">
           <div className="logo" />
-          <p>Hello</p>
-          <p>Hello</p>
-          <p>Hello</p>
-          <p>Hello</p>
-          <p>Hello</p>
+          <Link to="/stock" style={{ textDecoration: "none", color: "white" }}>
+            Stock
+          </Link>
+          <Link to="/input" style={{ textDecoration: "none", color: "white" }}>
+            Input
+          </Link>
           <button onClick={() => auth.signOut()}>Sign Out</button>
         </div>
       </div>

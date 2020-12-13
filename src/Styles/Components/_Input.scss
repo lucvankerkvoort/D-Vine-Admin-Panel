@@ -1,0 +1,19 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //   height: 100%;
+  //   border: 2px solid black;
+  padding: 50px;
+  height: 500px;
+  margin: auto;
+  //   align-items: center;
+  .image-placeholder {
+    height: 150px;
+    width: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid black;
+  }
+}

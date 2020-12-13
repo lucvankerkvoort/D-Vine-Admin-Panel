@@ -1,16 +1,11 @@
-import { url } from "inspector";
 import React from "react";
 
-const Images = ({ state }) => {
+const Images = ({ image }) => {
   return (
-    <>
-      {(state || []).map((image) => (
-        <div
-          className="image-placeholder"
-          style={{ backgroundImage: `url(${image}}` }}
-        />
-      ))}
-    </>
+    <div
+      className="image-placeholder"
+      style={{ backgroundImage: `url(${image}}` }}
+    />
   );
 };
 
