@@ -1,13 +1,12 @@
 import React, { useState, useContext } from "react";
 import { storage } from "../../Firebase/Firebase";
-import { InputContext } from "../../Services/Context/Input";
+import { InventoryContext } from "../../Services/Context/Inventory";
 const AddImage = () => {
   const [imageAsFile, setImageAsFile] = useState("");
 
-  const input = useContext(InputContext);
-  const { addToState } = useContext(InputContext);
-  console.log(addToState);
-  console.log(input.state);
+  const inventory = useContext(InventoryContext);
+  const { changeInputState } = useContext(InventoryContext);
+  const { images } = inventory.state.input;
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
     setImageAsFile((imageFile) => image);
@@ -40,7 +39,7 @@ const AddImage = () => {
           .child(imageAsFile.name)
           .getDownloadURL()
           .then((fireBaseUrl) => {
-            addToState({ images: [...input.state.images, fireBaseUrl] });
+            changeInputState({ images: [...images, fireBaseUrl] });
           });
       }
     );

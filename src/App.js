@@ -8,7 +8,7 @@ import "./Styles/import.scss";
 import Navbar from "./Components/Navbar/navbar";
 import { UserContext } from "./Services/Context/Auth";
 import { DbProvider } from "./Services/Context/Db";
-import { InputProvider } from "./Services/Context/Input";
+import { InventoryProvider } from "./Services/Context/Inventory";
 
 const App = () => {
   const user = useContext(UserContext);
@@ -21,15 +21,10 @@ const App = () => {
           <HashRouter>
             <Navbar />
             <Route exact path="/" render={(props) => <Home {...props} />} />
-            <Route path="/stock" render={(props) => <Stock {...props} />} />
-            <Route
-              path="/input"
-              render={(props) => (
-                <InputProvider>
-                  <Input {...props} />
-                </InputProvider>
-              )}
-            />
+            <InventoryProvider>
+              <Route path="/stock" render={(props) => <Stock {...props} />} />
+              <Route path="/input" render={(props) => <Input {...props} />} />
+            </InventoryProvider>
           </HashRouter>
         </DbProvider>
       )}

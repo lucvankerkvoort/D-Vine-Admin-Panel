@@ -1,8 +1,13 @@
 import React from "react";
 
-const Type = () => {
+const Type = ({ type, setType }) => {
   return (
-    <select name="type" id="type">
+    <select
+      name="type"
+      id="type"
+      value={type}
+      onChange={(e) => setType({ type: e.target.value })}
+    >
       <option>Choose a type of wine</option>
       <option value="red">Red</option>
       <option value="white">White</option>

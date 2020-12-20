@@ -1,18 +1,17 @@
-import React, { useContext } from "react";
-import { InputContext } from "../../Services/Context/Input";
+import { parse } from "path";
+import React from "react";
 
-const Price = ({ setState, state }) => {
-  const input = useContext(InputContext);
-  const { addToState } = useContext(InputContext);
-  const { price } = input.state;
-
+const Price = ({ price, setPrice }) => {
   return (
     <>
-      <label>Price</label>
+      <label>Price €</label>
       <input
         type="number"
         value={price}
-        onChange={(e) => addToState({ price: e.target.value })}
+        step={0.01}
+        onChange={(e) => {
+          setPrice({ price: parseFloat(e.target.value) });
+        }}
       />
     </>
   );

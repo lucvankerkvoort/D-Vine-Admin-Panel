@@ -1,10 +1,6 @@
-import React, { useContext } from "react";
-import { InputContext } from "../../Services/Context/Input";
+import React from "react";
 
-const Rating = () => {
-  const input = useContext(InputContext);
-  const { addToState } = useContext(InputContext);
-  const { rating } = input.state;
+const Rating = ({ rating, setRating }) => {
   return (
     <>
       <label>Rating</label>
@@ -15,7 +11,7 @@ const Rating = () => {
         max="5"
         step="1"
         value={rating}
-        onChange={(e) => addToState({ rating: e.target.value })}
+        onChange={(e) => setRating({ rating: parseInt(e.target.value) })}
       />
     </>
   );

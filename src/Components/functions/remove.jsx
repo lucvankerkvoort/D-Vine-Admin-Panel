@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InventoryContext } from "../../Services/Context/Inventory";
 
 const Remove = (props) => {
+  const inventory = useContext(InventoryContext);
+  const { changeInputState } = useContext(InventoryContext);
+  const { images } = inventory.state.input;
   const handleRemove = () => {
-    const { state, setState } = props;
-    let removableItem = props.children.props.image;
-    console.log("state", state, "setState", setState);
-    for (let i = 0; i < state.length; i++) {
-      console.log("state", state[i]);
-      if (state[i] === removableItem) {
-        state.splice(i, 1);
-
-        console.log("after removal", state);
+    for (let i = 0; i < images.length; i++) {
+      if (images[i] === props.remove) {
+        images.splice(i, 1);
       }
     }
-    setState(state);
+    changeInputState({ images });
   };
 
   return (

@@ -1,17 +1,13 @@
-import React, { useContext } from "react";
-import { InputContext } from "../../Services/Context/Input";
+import React from "react";
 
-const Description = () => {
-  const input = useContext(InputContext);
-  const { addToState } = useContext(InputContext);
-  const { description } = input.state;
+const Description = ({ description, setDescription }) => {
   return (
     <>
       <label>Description</label>
       <textarea
         name="description"
         id="description"
-        onChange={(e) => addToState({ description: e.target.value })}
+        onChange={(e) => setDescription({ description: e.target.value })}
         value={description}
       />
     </>

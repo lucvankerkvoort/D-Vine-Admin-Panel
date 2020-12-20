@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { InventoryContext } from "../../Services/Context/Inventory";
 import Images from "../Input/images";
 import Quantity from "../Input/quantity";
 import Title from "../Input/title";
 
-const StockItem = ({ image, title, quantity, setState, state }) => {
-  const [stockQuantity, setQuantity] = useState("");
-  const [stockTitle, setTitle] = useState("");
-
-  useEffect(() => {
-    setQuantity(quantity);
-    setTitle(title);
-    setState(...state, quantity, title);
-  }, [quantity, setState, state, title]);
+const StockItem = ({ image, id, title, quantity, stock }) => {
+  const { changeStockState } = useContext(InventoryContext);
 
   return (
-    <div>
-      <Images state={[image]} />
-      <Quantity setState={setQuantity} state={stockQuantity} />
-      <Title setState={setTitle} state={stockTitle} />
+    <div className={`stock-item ${id}`}>
+      <Images image={image} />
+      <Quantity
+        quantity={quantity}
+        setQuantity={(input) => changeStockState({ id, input })}
+      />
+      <Title title={title} setTitle={changeStockState} />
+      <p>Stock:{stock}</p>
     </div>
   );
 };
