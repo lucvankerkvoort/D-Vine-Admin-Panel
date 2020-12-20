@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InputContext } from "../../Services/Context/Input";
 
-const Quantity = ({ setState, state }) => {
-  const handleChange = (input) => {
-    setState(input);
-  };
+const Quantity = () => {
+  const input = useContext(InputContext);
+  const { addToState } = useContext(InputContext);
+  const { quantity } = input.state;
 
   return (
     <>
       <label>Quantity</label>
       <input
         type="number"
-        value={state}
-        onChange={(e) => handleChange(e.target.value)}
+        value={quantity}
+        onChange={(e) => addToState({ quantity: e.target.value })}
       />
     </>
   );

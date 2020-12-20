@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer from "./AppReducer";
+import AppReducer from "../Reducers/AppReducer";
 
 const initialState = {
   wine: [
@@ -12,7 +12,7 @@ const initialState = {
       description: "",
       rating: 0,
       quantity: 0,
-      images: []
+      images: [],
     },
   ],
 };

@@ -1,9 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { db } from "../Firebase/Firebase";
+import { db } from "../../Firebase/Firebase";
 export default (state, action) => {
   console.log(state);
   switch (action.type) {
     case "REMOVE_WINE":
+      console.log(db);
       return db.collection("wine").doc(action.payload).delete();
     case "ADD_WINE":
       console.log("Add Wine");

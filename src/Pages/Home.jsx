@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { db } from "../Firebase/Firebase";
-import { UserContext } from "../Services/Auth";
-import { DbContext } from "../Services/Db";
+import { UserContext } from "../Services/Context/Auth";
+import { DbContext } from "../Services/Context/Db";
 const Home = () => {
   const user = useContext(UserContext);
   const { addWine } = useContext(DbContext);
@@ -9,10 +9,7 @@ const Home = () => {
 
   const handleSubmit = () => {
     let input = { title: "test", test: "test" };
-    db.collection("wine")
-      .doc("AfqsMHQzIVgZrXw1Jy26")
-      .get()
-      .then((result) => console.log("result", result));
+    db.collection("wine").doc("wine1").get();
   };
   return (
     <div className="home">

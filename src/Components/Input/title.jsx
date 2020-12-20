@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InputContext } from "../../Services/Context/Input";
 
-const Title = ({ setState, state }) => {
-  const handleChange = (input) => {
-    setState(input);
-  };
+const Title = () => {
+  const input = useContext(InputContext);
+  const { addToState } = useContext(InputContext);
+  const { title } = input.state;
 
   return (
     <>
       <label>Title</label>
-      <input onChange={(e) => handleChange(e.target.value)} value={state} />
+      <input
+        onChange={(e) => addToState({ title: e.target.value })}
+        value={title}
+      />
     </>
   );
 };

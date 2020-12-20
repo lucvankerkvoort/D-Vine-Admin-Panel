@@ -1,5 +1,5 @@
 import React, { Component, createContext } from "react";
-import { auth } from "../Firebase/Firebase";
+import { auth } from "../../Firebase/Firebase";
 
 export const UserContext = createContext({ user: null });
 class UserProvider extends Component {

@@ -17,8 +17,9 @@ const Stock = ({ dbInfo }) => {
 
   return (
     <div className="stock">
-      {fakeData.map((item) => (
+      {fakeData.map((item, i) => (
         <StockItem
+          key={i}
           image={item.image}
           title={item.title}
           setState={setState}

@@ -11,7 +11,7 @@ const StockItem = ({ image, title, quantity, setState, state }) => {
     setQuantity(quantity);
     setTitle(title);
     setState(...state, quantity, title);
-  }, [state]);
+  }, [quantity, setState, state, title]);
 
   return (
     <div>
