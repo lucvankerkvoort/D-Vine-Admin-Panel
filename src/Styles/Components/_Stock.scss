@@ -1,0 +1,13 @@
+.stock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .stock-item {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 20px;
+    border: 2px solid black;
+    height: 40%;
+  }
+}

@@ -15,6 +15,7 @@ const config = {
 app.initializeApp(config);
 // app.initializeApp(config);
 
+app.firestore().settings({ experimentalForceLongPolling: true });
 const db = app.firestore();
 const storage = app.storage();
 const auth = app.auth();

@@ -1,14 +1,18 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer from "./AppReducer";
+import AppReducer from "../Reducers/AppReducer";
 
 const initialState = {
   wine: [
     {
-      id: 1,
-      title: "Merlot",
-      price: 15,
-      description: "Lorem Ipsum",
-      rating: 4.0,
+      id: "", //the database reference
+      title: "",
+      type: "",
+      price: 0,
+      tagline: "",
+      description: "",
+      rating: 0,
+      quantity: 0,
+      images: [],
     },
   ],
 };
