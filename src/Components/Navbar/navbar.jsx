@@ -41,6 +41,12 @@ const Navbar = () => {
           <Link to="/input" style={{ textDecoration: "none", color: "white" }}>
             Input
           </Link>
+          <Link to="/adddeal" style={{ textDecoration: "none", color: "white" }}>
+            Add Deal
+          </Link>
+          <Link to="/addarticle" style={{ textDecoration: "none", color: "white" }}>
+            Add Article
+          </Link>
           <button onClick={() => auth.signOut()}>Sign Out</button>
         </div>
       </div>
