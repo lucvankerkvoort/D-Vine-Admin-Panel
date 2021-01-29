@@ -3,6 +3,8 @@ import Login from "./Components/Login/login";
 import { HashRouter, Route } from "react-router-dom";
 import Stock from "./Pages/Stock";
 import Input from "./Pages/Input";
+import AddDeal from "./Pages/AddDeal";
+import AddArticle from "./Pages/AddArticle";
 import Home from "./Pages/Home";
 import "./Styles/import.scss";
 import Navbar from "./Components/Navbar/navbar";
@@ -24,6 +26,8 @@ const App = () => {
             <InventoryProvider>
               <Route path="/stock" render={(props) => <Stock {...props} />} />
               <Route path="/input" render={(props) => <Input {...props} />} />
+              <Route path="/adddeal" render={(props) => <AddDeal {...props} />} />
+              <Route path="/addarticle" render={(props) => <AddArticle {...props} />} />
             </InventoryProvider>
           </HashRouter>
         </DbProvider>

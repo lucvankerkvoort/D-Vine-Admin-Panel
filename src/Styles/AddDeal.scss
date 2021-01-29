@@ -1,0 +1,29 @@
+.add-deal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    form{
+        display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px lightgrey solid;
+    div{
+        margin-bottom: 5px;
+        select{
+            padding: 5px;
+        }
+    }
+    button{
+        padding: 5px;
+        width: 100%;
+
+    }
+    }
+}
+input{
+    padding: 5px 0;
+    width: 100%;
+    margin-bottom: 5px;
+}
