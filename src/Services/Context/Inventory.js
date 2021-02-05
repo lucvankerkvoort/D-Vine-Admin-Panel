@@ -10,45 +10,28 @@ const initialState = {
     description: "",
     quantity: 0,
     type: "",
+    classification:"",
+    brand:"",
+    vintage:"",
+    country:"",
+    region:"",
+    volume:"",
+    condition:"",
+    label:"",
+    stock:""
   },
   stock: [
     {
       id: "test_1",
       title: "test",
-      images: [logo],
-      quantity: 0,
-      stock: 0,
-    },
-    {
-      id: "test_2",
-      title: "test",
-      images: [logo],
-      quantity: 0,
-      stock: 0,
-    },
-    {
-      id: "test_3",
-      title: "test",
-      images: [logo],
-      quantity: 0,
-      stock: 0,
-    },
-    {
-      id: "test_4",
-      title: "test",
-      images: [logo],
-      quantity: 0,
-      stock: 0,
-    },
-    {
-      id: "test_5",
-      title: "test",
-      images: [logo],
+      images: logo,
       quantity: 0,
       stock: 0,
     },
   ],
 };
+
+
 
 export const InventoryContext = createContext(initialState);
 export const InventoryProvider = ({ children }) => {
