@@ -36,7 +36,7 @@ const Input = (props) => {
     label,
     stock
   } = inventory.state.input;
-
+  console.log(inventory.state.input);
   const disabled =
     title === "" ||
     rating === 0 ||
@@ -47,22 +47,22 @@ const Input = (props) => {
     const upload=()=>{
       db.collection('wine').add({
         title,
-    rating,
-    quantity,
-    type,
-    description,
-    price,
-    images,
-    classification,
-    brand,
-    vintage,
-    country,
-    region,
-    volume,
-    condition,
-    label,
-    stock
-    })
+        rating,
+        quantity,
+        type,
+        description,
+        price,
+        images,
+        classification,
+        brand,
+        vintage,
+        country,
+        region,
+        volume,
+        condition,
+        label,
+        stock
+      })
     console.log("success");
     }
   
