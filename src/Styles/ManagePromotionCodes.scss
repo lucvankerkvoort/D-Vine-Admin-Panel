@@ -1,0 +1,9 @@
+.codes-container{
+    display: flex;
+    .codes-block{
+        border: 1px lightgrey solid;
+        padding: 10px;
+        height: fit-content;
+        margin: 5px;
+    }
+}
