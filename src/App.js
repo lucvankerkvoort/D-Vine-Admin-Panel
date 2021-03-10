@@ -5,6 +5,8 @@ import Stock from "./Pages/Stock";
 import Input from "./Pages/Input";
 import AddDeal from "./Pages/AddDeal";
 import AddArticle from "./Pages/AddArticle";
+import AddPromotionCodes from "./Pages/AddPromotionCodes";
+import ManagePromotionCodes from "./Pages/ManagePromotionCodes";
 import Home from "./Pages/Home";
 import "./Styles/import.scss";
 import Navbar from "./Components/Navbar/navbar";
@@ -28,6 +30,8 @@ const App = () => {
               <Route path="/input" render={(props) => <Input {...props} />} />
               <Route path="/adddeal" render={(props) => <AddDeal {...props} />} />
               <Route path="/addarticle" render={(props) => <AddArticle {...props} />} />
+              <Route path="/addpromotioncodes" render={(props) => <AddPromotionCodes {...props} />} />
+              <Route path="/managepromotioncodes" render={(props) => <ManagePromotionCodes {...props} />} />
             </InventoryProvider>
           </HashRouter>
         </DbProvider>

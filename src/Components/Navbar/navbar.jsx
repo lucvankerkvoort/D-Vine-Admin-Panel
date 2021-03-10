@@ -47,6 +47,12 @@ const Navbar = () => {
           <Link to="/addarticle" style={{ textDecoration: "none", color: "white" }}>
             Add Article
           </Link>
+          <Link to="/addpromotioncodes" style={{ textDecoration: "none", color: "white" }}>
+            Add Promotion Codes
+          </Link>
+          <Link to="/managepromotioncodes" style={{ textDecoration: "none", color: "white" }}>
+            Manage Promotion Codes
+          </Link>
           <button onClick={() => auth.signOut()}>Sign Out</button>
         </div>
       </div>

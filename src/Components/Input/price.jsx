@@ -1,4 +1,3 @@
-import { parse } from "path";
 import React from "react";
 
 const Price = ({ price, setPrice }) => {
