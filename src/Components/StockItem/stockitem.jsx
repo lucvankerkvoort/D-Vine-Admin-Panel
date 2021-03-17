@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { db } from "../../Firebase/Firebase";
-import { InventoryContext } from "../../Services/Context/Inventory";
 import Images from "../Input/images";
 
 const StockItem = ({ images, id, title, quantity, description, price, rating, type }) => {
