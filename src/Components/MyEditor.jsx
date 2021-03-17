@@ -13,7 +13,7 @@ class MyEditor extends Component {
     image: undefined
   }
 
-  onEditorStateChange: function = (editorState) => {
+  onEditorStateChange = (editorState) => {
     this.setState({
       editorState,
       article: draftToMarkdown(convertToRaw(editorState.getCurrentContent()))
@@ -50,7 +50,7 @@ class MyEditor extends Component {
           })
       }
     );
-    
+
   }
   handleTitle = e => {
     this.setState({
@@ -63,7 +63,6 @@ class MyEditor extends Component {
     })
   }
   render() {
-    const { editorState } = this.state;
     return (
       <div style={{ display: "flex", flexDirection: "column" }}>
         <label>Title:</label>

@@ -1,29 +1,23 @@
-import React, { useContext,useEffect,useState } from "react";
-import Quantity from "../Components/Input/quantity";
-import Title from "../Components/Input/title";
-import Images from "../Components/Input/images";
+import React, { useEffect, useState } from "react";
 import StockItem from "../Components/StockItem/stockitem";
-import { InventoryContext } from "../Services/Context/Inventory";
-import {db} from "../Firebase/Firebase";
+import { db } from "../Firebase/Firebase";
 
 const Stock = () => {
-  const inventory = useContext(InventoryContext);
-  //const { stock } = inventory.state;
-  const { changeStockState } = useContext(InventoryContext);
-  const [stocks,setStocks]=useState([]);
+  const [stocks, setStocks] = useState([]);
 
   console.log(stocks);
 
-  useEffect(()=>{
-    db.collection('wine').onSnapshot(snapshot=>{
-        setStocks(snapshot.docs.map(doc=>({
-            id:doc.id,
-            stock:doc.data()})));
+  useEffect(() => {
+    db.collection('wine').onSnapshot(snapshot => {
+      setStocks(snapshot.docs.map(doc => ({
+        id: doc.id,
+        stock: doc.data()
+      })));
     })
-},[])
+  }, [])
   return (
     <div className="stock">
-      {stocks.map(({id,stock}) => (
+      {stocks.map(({ id, stock }) => (
         <StockItem
           key={id}
           id={id}

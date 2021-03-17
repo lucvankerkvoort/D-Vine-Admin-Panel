@@ -1,4 +1,3 @@
-import Input from "../../Pages/Input";
 
 const InventoryReducer = (state, action) => {
   console.log("action", action);

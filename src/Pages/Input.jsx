@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext } from "react";
 import AddImage from "../Components/Input/addImage";
 import Images from "../Components/Input/images";
 import Price from "../Components/Input/price";
@@ -15,7 +15,6 @@ import draftToMarkdown from 'draftjs-to-markdown';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const Input = (props) => {
-  const [editorState,setEditorState]=useState(undefined);
   const inventory = useContext(InventoryContext);
   const { changeInputState } = useContext(InventoryContext);
   const {
@@ -44,30 +43,30 @@ const Input = (props) => {
     type === "" ||
     description === "" ||
     quantity === 0;
-    const upload=()=>{
-      db.collection('wine').add({
-        title,
-        rating,
-        quantity,
-        type,
-        description,
-        price,
-        images,
-        classification,
-        brand,
-        vintage,
-        country,
-        region,
-        volume,
-        condition,
-        label,
-        stock
-      })
+  const upload = () => {
+    db.collection('wine').add({
+      title,
+      rating,
+      quantity,
+      type,
+      description,
+      price,
+      images,
+      classification,
+      brand,
+      vintage,
+      country,
+      region,
+      volume,
+      condition,
+      label,
+      stock
+    })
     console.log("success");
-    }
-  
+  }
+
   return (
-    <div className="input" style={{maxWidth:"700px",height:"auto"}}>
+    <div className="input" style={{ maxWidth: "700px", height: "auto" }}>
       <AddImage />
       {[].map((image) => {
         return (
@@ -84,34 +83,33 @@ const Input = (props) => {
 
       <label>Description:</label>
       <div style={{ border: "1px solid lightgray", backgroundColor: "#EBEBE4", padding: "5px", marginBottom: "5px" }}>
-          <Editor
-            wrapperClassName="demo-wrapper"
-            editorClassName="demo-editor"
-            onEditorStateChange={(e)=>{
-                setEditorState(e)
-                changeInputState({ description: draftToMarkdown(convertToRaw(e.getCurrentContent())) })
-            }}
-            />
-        </div>
+        <Editor
+          wrapperClassName="demo-wrapper"
+          editorClassName="demo-editor"
+          onEditorStateChange={(e) => {
+            changeInputState({ description: draftToMarkdown(convertToRaw(e.getCurrentContent())) })
+          }}
+        />
+      </div>
       <label>Classification:</label>
-      <input type="text" onChange={e=>{changeInputState({classification:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ classification: e.target.value }) }} />
       <label>brand:</label>
-      <input type="text" onChange={e=>{changeInputState({brand:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ brand: e.target.value }) }} />
       <label>vintage:</label>
-      <input type="text" onChange={e=>{changeInputState({vintage:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ vintage: e.target.value }) }} />
       <label>country:</label>
-      <input type="text" onChange={e=>{changeInputState({country:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ country: e.target.value }) }} />
       <label>region:</label>
-      <input type="text" onChange={e=>{changeInputState({region:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ region: e.target.value }) }} />
       <label>volume:</label>
-      <input type="text" onChange={e=>{changeInputState({volume:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ volume: e.target.value }) }} />
       <label>condition:</label>
-      <input type="text" onChange={e=>{changeInputState({condition:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ condition: e.target.value }) }} />
       <label>label:</label>
-      <input type="text" onChange={e=>{changeInputState({label:e.target.value})}}/>
+      <input type="text" onChange={e => { changeInputState({ label: e.target.value }) }} />
       <label>stock:</label>
-      <input type="text" onChange={e=>{changeInputState({stock:e.target.value})}}/>
-      
+      <input type="text" onChange={e => { changeInputState({ stock: e.target.value }) }} />
+
       <button disabled={disabled} onClick={upload}>
         Submit
       </button>

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { InventoryContext } from "../../Services/Context/Inventory";
+import React from "react";
 
 const Quantity = ({ quantity, setQuantity }) => {
   return (
